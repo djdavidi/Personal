@@ -1,60 +1,73 @@
 <template>
   <div class="home">
-    <div v-if="isGameClosed">
-      <div>Hi </div>
-      <div>I'm David</div>
-      <div>I'm 000 a software developer currently located in New York City</div>
-
-      <div> You can find me reading(usually sci-fi/fantasy), drawing, listening to music, snowboarding,
-      and propbably trying out some random hobby.</div>
-      <div> Also a bit of a gamer, either find me online in whatever game I'm currently playing or at Pax West and East or NY Comic con</div>
-
-      <div>If you want to get in touch you can through a few different channels</div>
-      <div> git me at my github to check out what I've been working on</div>
-      <div>link up with me on my linkedin: davidscherban </div>
-      <div>Gram me at my instagram</div>
-      <div> email me at my email Email: </div>
-      <div>tweet me at my twitter</div>
-      <div>or If you want check out my Resume below. Press enter </div>
+    <div id="intro"></div>
+    <div v-if="doneWithIntro" class="contact-info fade-in">
+        <div> Checkout my <a href="">Github.</a></div>
+        <div> Connect on <a href="./">Linkedin.</a></div>
+        <div> Send me an <a href="mailto:address@example.com">Email.</a></div>
     </div>
-    <game v-if="!isGameClosed"></game>
   </div>
 </template>
 
+<!-- TO DO
+
+ADD UNDERSCORE AND REMOVE AT EACH LINE AT BREAK
+MAKE LINKS DIFFERENT NEON COLORS
+ADD SVG ANIMATIONS FOR EACH ONE
+ADD ICONS FOR CONTACT STUFF?
+https://codepen.io/djdavidi/pen/oexxGv
+
+
+
+ -->
+
 <script>
-import Game from './Game.vue'
+import profile from "../assets/profile.js"
 export default {
   name: 'home',
   data () {
     return {
-      isGameClosed: true,
-      isResumeOpen: false,
+      introElement: null,
+      doneWithIntro: false
     }
-  },
-  components: {
-    Game
   },
   mounted() {
-    window.addEventListener("keyup", (e) => {
-      if(e.keyCode === 13) {
-        this.enterPressed();
-      }
-    });
+    this.introElement = document.getElementById("intro");
+    this.addTextToHTML(profile, 0, 0);
   },
   methods: {
-    enterPressed() {
-      this.isGameClosed = !this.isGameClosed;
-      console.log("pressed")
+    addTextToHTML(profile, listIndex, stringIndex) {
+      // console.log("profile", profile)
+      if (stringIndex === 0) {
+        let divToAppend = document.createElement("div")
+        this.introElement.append(divToAppend)
+        // this.introElement = divToAppend;
+      }
+      setTimeout(() => {
+        this.introElement.innerHTML += profile[listIndex][stringIndex];
+        if ((profile.length - 1 === listIndex) && (profile[listIndex].length - 1 === stringIndex)) {
+          this.doneWithIntro = true;
+          console.log("done")
+          return;
+        } else if (profile[listIndex].length -1 > stringIndex) {
+          stringIndex++;
+          this.addTextToHTML(profile, listIndex, stringIndex)
+        } else if (profile[listIndex].length - 1 === stringIndex && (profile.length !== listIndex)) {
+          stringIndex = 0;
+          listIndex++;
+          setTimeout(() => {
+            this.addTextToHTML(profile, listIndex, stringIndex);
+          }, 300);
+        }
+      }, 50);
     }
   }
-  // have event handler for game and resuem, then store in local storage
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .home {
-  margin-top: 5%;
+  margin-top: 7%;
   width: 50%;
   height: 45%;
   text-align: left;
@@ -63,4 +76,26 @@ export default {
   font-weight: bold;
   /*background: yellow;*/
 } 
+.fade-in {
+  animation: 3s fadein;
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.contact-info {
+  height: 15%;
+  margin-top: 5%;
+}
+a {
+  color: #55ff55;
+}
+
 </style>
