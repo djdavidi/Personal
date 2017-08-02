@@ -2,9 +2,9 @@
   <div class="home">
     <div id="intro"></div>
     <div v-if="doneWithIntro" class="contact-info fade-in">
-        <div> Checkout my <a href="">Github.</a></div>
-        <div> Connect on <a href="./">Linkedin.</a></div>
-        <div> Send me an <a href="mailto:address@example.com">Email.</a></div>
+        <div> Checkout my <a href="">Github</a></div>
+        <div> Connect on <a href="">Linkedin</a></div>
+        <div> Send an <a href="mailto:address@example.com">Email</a></div>
     </div>
   </div>
 </template>
@@ -33,11 +33,14 @@ export default {
   },
   mounted() {
     this.introElement = document.getElementById("intro");
-    this.addTextToHTML(profile, 0, 0);
+    setTimeout(() => {
+      this.addTextToHTML(profile, 0, 0);    
+    }, 500);
   },
   methods: {
     addTextToHTML(profile, listIndex, stringIndex) {
       // console.log("profile", profile)
+      let timeoutLength = 50;
       if (stringIndex === 0) {
         let divToAppend = document.createElement("div")
         this.introElement.append(divToAppend)
@@ -57,7 +60,7 @@ export default {
           listIndex++;
           setTimeout(() => {
             this.addTextToHTML(profile, listIndex, stringIndex);
-          }, 300);
+          }, 400);
         }
       }, 50);
     }
