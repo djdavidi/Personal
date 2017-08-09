@@ -2,24 +2,14 @@
   <div class="home">
     <div id="intro"></div>
     <div v-if="doneWithIntro" class="contact-info fade-in">
-        <div> Checkout my <a href="">Github</a></div>
-        <div> Connect on <a href="">Linkedin</a></div>
-        <div> Send an <a href="mailto:address@example.com">Email</a></div>
+        <div>
+          <a class="github" href="">Github</a>
+          <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/davidscherban/">Linkedin</a>
+          <a class="email" href="mailto:address@example.com">Email</a>
+        </div>
     </div>
   </div>
 </template>
-
-<!-- TO DO
-
-ADD UNDERSCORE AND REMOVE AT EACH LINE AT BREAK
-MAKE LINKS DIFFERENT NEON COLORS
-ADD SVG ANIMATIONS FOR EACH ONE
-ADD ICONS FOR CONTACT STUFF?
-https://codepen.io/djdavidi/pen/oexxGv
-
-
-
- -->
 
 <script>
 import profile from "../assets/profile.js"
@@ -32,10 +22,9 @@ export default {
     }
   },
   mounted() {
-    this.introElement = document.getElementById("intro");
     setTimeout(() => {
       this.addTextToHTML(profile, 0, 0);    
-    }, 500);
+    }, 200);
   },
   methods: {
     addTextToHTML(profile, listIndex, stringIndex) {
@@ -43,6 +32,10 @@ export default {
       let timeoutLength = 50;
       if (stringIndex === 0) {
         let divToAppend = document.createElement("div")
+        // let blink = document.createElement(type, props, children)
+        this.introElement = document.getElementById("intro");
+        divToAppend.className += "thing"
+        // divToAppend.append(document.)
         this.introElement.append(divToAppend)
         // this.introElement = divToAppend;
       }
@@ -60,7 +53,7 @@ export default {
           listIndex++;
           setTimeout(() => {
             this.addTextToHTML(profile, listIndex, stringIndex);
-          }, 400);
+          }, 300);
         }
       }, 50);
     }
@@ -74,8 +67,8 @@ export default {
   width: 50%;
   height: 45%;
   text-align: left;
-  line-height: 1.8;
-  font-size: 18px;
+  line-height: 2em;
+  font-size: 1.3em;
   font-weight: bold;
   /*background: yellow;*/
 } 
