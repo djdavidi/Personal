@@ -26,11 +26,11 @@ export default {
   justify-content: center;
   
   font-family: 'Inconsolata', monospace;
-  background-color: #000;
+  background-color: #fff;
 }
 
 body {
-  background-color: #000;
+  background-color: #fff;
   margin: 0;
   height: 100vh;
   width: 100vw;

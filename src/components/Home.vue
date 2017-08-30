@@ -1,68 +1,41 @@
 <template>
   <div class="home">
-    <div id="intro"></div>
-    <div v-if="doneWithIntro" class="contact-info fade-in">
-        <div>
-          <a class="github" href="">Github</a>
-          <a class="linkedin" target="_blank" href="https://www.linkedin.com/in/davidscherban/">Linkedin</a>
-          <a class="email" href="mailto:address@example.com">Email</a>
-        </div>
+    <div>
+      <img src="../assets/Logo1.svg" class="logo">
+    </div>
+    <div class="profile links">
+      <div><a href="">About</a></div>
+      <div><a href="">Projects</a></div>
+      <div><a href="">Design</a></div>
+      <div><a href="">Blog</a></div>
     </div>
   </div>
 </template>
 
 <script>
-import profile from "../assets/profile.js"
+// import logo from "../assets/Logo1.jpg"
 export default {
   name: 'home',
   data () {
     return {
-      introElement: null,
-      doneWithIntro: false
+      intro: null,
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.addTextToHTML(profile, 0, 0);    
-    }, 200);
   },
   methods: {
-    addTextToHTML(profile, listIndex, stringIndex) {
-      // console.log("profile", profile)
-      let timeoutLength = 50;
-      if (stringIndex === 0) {
-        let divToAppend = document.createElement("div")
-        // let blink = document.createElement(type, props, children)
-        this.introElement = document.getElementById("intro");
-        divToAppend.className += "thing"
-        // divToAppend.append(document.)
-        this.introElement.append(divToAppend)
-        // this.introElement = divToAppend;
-      }
-      setTimeout(() => {
-        this.introElement.innerHTML += profile[listIndex][stringIndex];
-        if ((profile.length - 1 === listIndex) && (profile[listIndex].length - 1 === stringIndex)) {
-          this.doneWithIntro = true;
-          console.log("done")
-          return;
-        } else if (profile[listIndex].length -1 > stringIndex) {
-          stringIndex++;
-          this.addTextToHTML(profile, listIndex, stringIndex)
-        } else if (profile[listIndex].length - 1 === stringIndex && (profile.length !== listIndex)) {
-          stringIndex = 0;
-          listIndex++;
-          setTimeout(() => {
-            this.addTextToHTML(profile, listIndex, stringIndex);
-          }, 300);
-        }
-      }, 50);
-    }
   }
 }
 </script>
 
 <style scoped>
+
+.logo {
+  height: 100%;
+  width: 50%;
+}
 .home {
+  background-color: #fff;
   margin-top: 7%;
   width: 50%;
   height: 45%;
