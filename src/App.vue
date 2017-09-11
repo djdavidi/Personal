@@ -18,13 +18,10 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
   padding: 0;
   border: 0;
-  color:  #55ff55;
   display: flex;
   justify-content: center;
-  
   font-family: 'Inconsolata', monospace;
   background-color: #fff;
 }
