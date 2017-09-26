@@ -9,7 +9,9 @@
 </template>
 
 <script>
-// import logo from "../assets/Logo1.jpg"
+// https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+// USE THIS TO SET FLAG SO I DONT KEEP SHOWING THEM THE ANIMATION
+// https://codepen.io/alandunning/pen/RWRrEW
 const profile = [
       "Hi,",
       "I'm David.",
@@ -43,24 +45,28 @@ export default {
         this.introElement = document.getElementById("intro");
         divToAppend.className += "thing"
         // divToAppend.append(document.)
-        this.introElement.append(divToAppend)
+        if(this.introElement) {
+          this.introElement.append(divToAppend);
+        }
         // this.introElement = divToAppend;
       }
       setTimeout(() => {
-        this.introElement.innerHTML += profile[listIndex][stringIndex];
-        if ((profile.length - 1 === listIndex) && (profile[listIndex].length - 1 === stringIndex)) {
-          this.doneWithIntro = true;
-          console.log("done")
-          return;
-        } else if (profile[listIndex].length -1 > stringIndex) {
-          stringIndex++;
-          this.addTextToHTML(profile, listIndex, stringIndex)
-        } else if (profile[listIndex].length - 1 === stringIndex && (profile.length !== listIndex)) {
-          stringIndex = 0;
-          listIndex++;
-          setTimeout(() => {
-            this.addTextToHTML(profile, listIndex, stringIndex);
-          }, 300);
+        if(this.introElement) {
+          this.introElement.innerHTML += profile[listIndex][stringIndex];
+          if ((profile.length - 1 === listIndex) && (profile[listIndex].length - 1 === stringIndex)) {
+            this.doneWithIntro = true;
+            console.log("done")
+            return;
+          } else if (profile[listIndex].length -1 > stringIndex) {
+            stringIndex++;
+            this.addTextToHTML(profile, listIndex, stringIndex)
+          } else if (profile[listIndex].length - 1 === stringIndex && (profile.length !== listIndex)) {
+            stringIndex = 0;
+            listIndex++;
+            setTimeout(() => {
+              this.addTextToHTML(profile, listIndex, stringIndex);
+            }, 300);
+          }
         }
       }, 50);
     }
@@ -75,7 +81,7 @@ export default {
   margin-top: 10%;
   min-height: 50px;
   min-width: 50px;
-  width: 60%;
+  width: 80%;
   height: 95%;
   text-align: left;
   line-height: 1.8rem;
@@ -88,7 +94,7 @@ export default {
   /*background: yellow;*/
 } 
 #intro {
-  height: 35%;
+  height: 60%;
   text-align: left;
   width: 100%;
 }
@@ -112,7 +118,8 @@ export default {
 }
 
 .contact-info {
-  height: 15%;
+  height: 40%;
+  width: 80%;
   margin-top: 5%;
   display: flex;
   justify-content: space-around;

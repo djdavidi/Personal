@@ -10,7 +10,7 @@
 </template>
 
 <script>
-// import logo from "../assets/Logo1.jpg"
+
 export default {
   name: 'projects',
   data () {

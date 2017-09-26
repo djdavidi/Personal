@@ -22,6 +22,8 @@ export default {
   display: flex;
   justify-content: center;
   font-family: 'Roboto', sans-serif;
+  /*change once do mobile optimization*/
+  min-width: 720px;
 }
 
 body {

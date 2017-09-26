@@ -6,12 +6,14 @@
     </div>
     </div>
     <div class="profile-links">
-      <div><router-link to="/about" :class="{'current-link': $route.path === '/about'}">About</router-link></div>
+      <div><router-link to="/" :class="{'current-link': $route.path === '/'}">About</router-link></div>
       <div><router-link to="/blog" :class="{'current-link': $route.path === '/blog'}">Blog</router-link></div>
       <div class="right-link"><router-link to="/art" :class="{'current-link': $route.path === '/art'}">Art</router-link></div>
      <div class="right-link"><router-link to="/projects" :class="{'current-link': $route.path === '/projects'}">Projects</router-link></div>
     </div>
-    <router-view></router-view> 
+    <div class="router-wrapper">
+      <router-view></router-view> 
+    </div>
   </div>
 </template>
 
@@ -38,6 +40,7 @@ export default {
 .logo {
   height: 100%;
   width: 50%;
+  margin-left: 10%;
 }
 .logo-container {
   display: flex;
@@ -64,7 +67,9 @@ export default {
   font-weight: bold;
   /*background: yellow;*/
 } 
-
+.router-wrapper {
+  height: 70%;
+}
 .home > div.logo-wrapper {
   display: flex;
   align-items: center;
@@ -80,9 +85,10 @@ export default {
   flex-direction: row;
   justify-content: space-around;
   text-align: left;
+  margin-top: 3%;
 }
 .profile-links div {
-  width: 25%;
+  width: 20%;
   margin-right: 5%;
 }
 /*align a in middle*/
@@ -102,10 +108,6 @@ export default {
   }
 }
 
-.contact-info {
-  height: 15%;
-  margin-top: 5%;
-}
 a {
    color: #000;
    text-decoration: none;

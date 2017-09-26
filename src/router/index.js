@@ -7,16 +7,15 @@ import Art from '@/components/Art'
 import Projects from '@/components/Projects'
 
 Vue.use(Router)
-
+// add 404
 export default new Router({
   routes: [
     {
-      path: '/',
-      name: 'Home',
+      path: '',
       component: Home,
       children: [
       	{
-      		path: "/about",
+      		path: "/",
       		component: About
       	},
       	{
