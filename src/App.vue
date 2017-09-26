@@ -14,7 +14,6 @@ export default {
 #app {
   height: 100%;
   width: 100%;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -22,14 +21,14 @@ export default {
   border: 0;
   display: flex;
   justify-content: center;
-  font-family: 'Inconsolata', monospace;
-  background-color: #fff;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  background-color: #fff;
+  background-color: #d3d3d3;
   margin: 0;
   height: 100vh;
   width: 100vw;
+  font-size: 16px;
 }
 </style>

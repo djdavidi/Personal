@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="blog-post">
    <div>{{post.title}}</div>
    <div>{{post.date}}</div><span>time since posted{{post.date}} - {{new Date()}}</span>
    <div>{{post.body}}</div>
@@ -20,6 +20,10 @@ export default {
 </script>
 
 <style scoped>
+
+.blog-post {
+  margin-bottom: 5%;
+}
 .blog-post-title {
 
 }
