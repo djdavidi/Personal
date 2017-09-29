@@ -27,7 +27,9 @@ export default {
 }
 
 body {
-  background-color: #d3d3d3;
+  /*background-color: #d3d3d3;*/
+  background: #000;
+  color: #fff;
   margin: 0;
   height: 100vh;
   width: 100vw;

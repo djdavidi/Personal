@@ -22,8 +22,10 @@ export default {
 
 <style scoped>
 .projects {
+  height: 100%;
+  width: 80%;
+  margin-left: 10%;
   font-size: 1rem;
-  margin-top: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +33,7 @@ export default {
 }
 
 .projects a {
-  color: #000;
+  color: #252525;
 /*  -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #000;*/
 }

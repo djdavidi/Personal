@@ -79,7 +79,7 @@ export default {
 
 .about {
   margin-top: 10%;
-  min-height: 50px;
+  min-height: 500px;
   min-width: 50px;
   width: 80%;
   height: 95%;

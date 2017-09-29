@@ -1,16 +1,20 @@
 <template>
   <div class="home">
-    <div class="logo-wrapper">
-    <div class="logo-container">
-      <img src="../assets/Logo13.svg" class="logo">
+  <!-- split into component -->
+    <div class="header">
+      <div class="logo-wrapper">
+      <div class="logo-container">
+        <img src="../assets/Logo13.svg" class="logo">
+      </div>
+      </div>
+      <div class="profile-links">
+        <div><router-link to="/" :class="{'current-link': $route.path === '/'}">About</router-link></div>
+        <div><router-link to="/blog" :class="{'current-link': $route.path === '/blog'}">Blog</router-link></div>
+        <div class="right-link"><router-link to="/art" :class="{'current-link': $route.path === '/art'}">Art</router-link></div>
+       <div class="right-link"><router-link to="/projects" :class="{'current-link': $route.path === '/projects'}">Projects</router-link></div>
+      </div>
     </div>
-    </div>
-    <div class="profile-links">
-      <div><router-link to="/" :class="{'current-link': $route.path === '/'}">About</router-link></div>
-      <div><router-link to="/blog" :class="{'current-link': $route.path === '/blog'}">Blog</router-link></div>
-      <div class="right-link"><router-link to="/art" :class="{'current-link': $route.path === '/art'}">Art</router-link></div>
-     <div class="right-link"><router-link to="/projects" :class="{'current-link': $route.path === '/projects'}">Projects</router-link></div>
-    </div>
+
     <div class="router-wrapper">
       <router-view></router-view> 
     </div>
@@ -24,11 +28,11 @@ export default {
   data () {
     return {
       intro: null,
-      currentLink: "about"
+      currentLink: "about",
     }
   },
   mounted() {
-    console.log("thispath", this.$route.path)
+    console.log("thispath", this.$route)
   },
   methods: {
   }
@@ -36,44 +40,64 @@ export default {
 </script>
 
 <style scoped>
+.header {
+  width: 100%;
+  background: #fff;
+  /*background: #d3d3d3;*/
+  display: flex;
+  /*change to row for more typical left to right nav bar*/
+  flex-direction: column;
+  align-items: center;
 
+
+}
 .logo {
   height: 100%;
   width: 50%;
   margin-left: 10%;
 }
+
 .logo-container {
   display: flex;
   /*justify-content: center;*/
 }
 
 .current-link {
+  border-color:  #FFDF00;
   border-style: none none solid none;
-  border-bottom-color:  #FFDF00;
 }
 
 .profile-links  a:hover {
   border-color:   #FFDF00;
+  border-style: solid none none none;
+}
+
+.profile-links .current-link:hover {
   border-style: solid none solid none;
 }
 .home {
   /*background-color: #fff;*/
-  margin-top: 2%;
-  width: 50%;
-  height: 90%;
+  /*margin-top: 2%;*/
+  width: 100%;
+  height: 100%;
   text-align: left;
   line-height: 2em;
   font-size: 1.3em;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   /*background: yellow;*/
 } 
 .router-wrapper {
   height: 70%;
 }
-.home > div.logo-wrapper {
+.home .logo-wrapper{
+  margin-top: 2%;
   display: flex;
   align-items: center;
   justify-content: center;
+  /*width: 50%;*/
 }
 .fade-in {
   animation: 3s fadein;
@@ -82,10 +106,13 @@ export default {
   font-family: 'Montserrat', sans-serif;
   margin-top: 1%;
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-around;
   text-align: left;
-  margin-top: 3%;
+  /*margin-top: 3%;*/
+  width: 50%;
+  /*width: 50%;*/
 }
 .profile-links div {
   width: 20%;
@@ -109,7 +136,7 @@ export default {
 }
 
 a {
-   color: #000;
+   color: #252525;
    text-decoration: none;
    font-size: 1.4em;
 }
