@@ -22,10 +22,11 @@ export default {
 
 <style scoped>
 .art {
-  height: 100%;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  height: 90%;
+  width: 40%;
+  margin-bottom: 10%;
+/*  margin-left: 25%;
+  margin-right: 10%;*/
   display: flex;
   justify-content: center;
   align-items: center;

@@ -6,6 +6,7 @@
 
 <script>
 // import logo from "../assets/Logo1.jpg"
+// https://github.com/showdownjs/showdown
 import BlogPost from './BlogPost';
 export default {
   name: 'blog',
@@ -72,6 +73,7 @@ export default {
 
 <style scoped>
 div.blog-container {
+  height: 100%;
   display: flex;
   flex-direction: column;
   margin-top: 5%;

@@ -1,9 +1,14 @@
 <template>
  <div class="about">
-    <div id="intro"></div>
-    <div v-show="doneWithIntro" class="contact-info fade-in">
-          <a class="linkedin" target="_blank" href=""><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
-          <a class="github" href=""><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+    <div class="intro-wrapper">
+      <div id="intro"></div>
+      <div v-show="doneWithIntro" class="contact-info fade-in">
+            <a class="linkedin" target="_blank" href=""><i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>
+            <a class="github" href=""><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <div class="tree-view">
+      Tree view goes here
     </div>
 </div>
 </template>
@@ -12,6 +17,8 @@
 // https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 // USE THIS TO SET FLAG SO I DONT KEEP SHOWING THEM THE ANIMATION
 // https://codepen.io/alandunning/pen/RWRrEW
+// Add Blinky, add json tree resume, fix width
+// https://devblog.digimondo.io/building-a-json-tree-view-component-in-vue-js-from-scratch-in-six-steps-ce0c05c2fdd8
 const profile = [
       "Hi,",
       "I'm David.",
@@ -76,25 +83,31 @@ export default {
 </script>
 
 <style scoped>
-
 .about {
-  margin-top: 10%;
+  margin-top: 20%;
   min-height: 500px;
-  min-width: 50px;
-  width: 80%;
-  height: 95%;
+  min-width: 400px;
+  width: 100%;
+  height: 80%;
   text-align: left;
   line-height: 1.8rem;
   font-size: 1rem;
   font-weight: bold;
   display: flex;
+  /*flex-direction: column;*/
+  /*align-items: top;
+  justify-content: left;*/
+  /*background: yellow;*/
+} 
+.intro-wrapper, .tree-view{
+  display: flex;
   flex-direction: column;
   align-items: top;
   justify-content: left;
-  /*background: yellow;*/
-} 
+  width: 50%;
+}
 #intro {
-  height: 60%;
+  height: 50%;
   text-align: left;
   width: 100%;
 }
@@ -114,7 +127,7 @@ export default {
 .github > i, .linkedin > i {
   color: transparent;
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #000;
+  -webkit-text-stroke-color: #fff;
 }
 
 .contact-info {
@@ -129,7 +142,8 @@ export default {
   text-decoration: none;
 }
 .contact-info  i:hover {
-   color: #FFD700;;
+  /*change to a shade of cyan, less saturated*/
+   color: cyan;
    /*-webkit-text-stroke-width: 1px;*/
    /*-webkit-text-stroke-color:  #ff0000;*/
   transform: scale(1.1) translateY(-2px);

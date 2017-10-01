@@ -3,9 +3,7 @@
   <!-- split into component -->
     <div class="header">
       <div class="logo-wrapper">
-      <div class="logo-container">
         <img src="../assets/Logo13.svg" class="logo">
-      </div>
       </div>
       <div class="profile-links">
         <div><router-link to="/" :class="{'current-link': $route.path === '/'}">About</router-link></div>
@@ -40,41 +38,7 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  width: 100%;
-  background: #fff;
-  /*background: #d3d3d3;*/
-  display: flex;
-  /*change to row for more typical left to right nav bar*/
-  flex-direction: column;
-  align-items: center;
 
-
-}
-.logo {
-  height: 100%;
-  width: 50%;
-  margin-left: 10%;
-}
-
-.logo-container {
-  display: flex;
-  /*justify-content: center;*/
-}
-
-.current-link {
-  border-color:  #FFDF00;
-  border-style: none none solid none;
-}
-
-.profile-links  a:hover {
-  border-color:   #FFDF00;
-  border-style: solid none none none;
-}
-
-.profile-links .current-link:hover {
-  border-style: solid none solid none;
-}
 .home {
   /*background-color: #fff;*/
   /*margin-top: 2%;*/
@@ -89,11 +53,49 @@ export default {
   flex-direction: column;
   /*background: yellow;*/
 } 
+.header {
+  width: 100%;
+  height: 18%;
+  background: #fff;
+  /*background: #d3d3d3;*/
+  display: flex;
+  /*change to row for more typical left to right nav bar*/
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: space-around;*/
+
+}
+.logo {
+  height: 100%;
+  width: 50%;
+  /*margin-left: 10%;*/
+}
+
+.current-link {
+  border-color: cyan;
+  border-style: none none solid none;
+}
+
+.profile-links  a:hover {
+  border-color:  cyan;
+  border-style: solid none none none;
+}
+.profile-links > div:hover {
+  transform: scale(1.05) translateY(-2px);
+}
+
+.profile-links .current-link:hover {
+  border-style: solid none solid none;
+}
 .router-wrapper {
-  height: 70%;
+  height: 82%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .home .logo-wrapper{
-  margin-top: 2%;
+  margin-top: 1%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,19 +106,21 @@ export default {
 }
 .home .profile-links {
   font-family: 'Montserrat', sans-serif;
-  margin-top: 1%;
+  /*margin-top: 1%;*/
   display: flex;
   align-items: center;
   flex-direction: row;
   justify-content: space-around;
-  text-align: left;
+  /*text-align:;*/
   /*margin-top: 3%;*/
   width: 50%;
+  /*margin-bottom: 1%;*/
+  margin-top: 1%;
   /*width: 50%;*/
 }
 .profile-links div {
-  width: 20%;
-  margin-right: 5%;
+/*  width: 20%;
+  margin-right: 5%;*/
 }
 /*align a in middle*/
 
